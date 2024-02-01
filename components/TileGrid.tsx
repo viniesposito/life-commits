@@ -6,6 +6,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { isDynamicMetadataRoute } from "next/dist/build/analysis/get-page-static-info";
 
 interface DayData {
   date: string;
@@ -51,10 +52,12 @@ const TileGrid: React.FC<TileGridProps> = ({ data, habit }) => {
                       </TooltipTrigger>
                       <TooltipContent>
                         <p>
-                          {dayData.count}
-                          {dayData.count === 1
-                            ? " contribution "
-                            : " contributions "}
+                          {typeof dayData.count === "undefined" ||
+                          dayData.count === 0
+                            ? "No contributions "
+                            : dayData.count === 1
+                            ? `${dayData.count} contribution `
+                            : `${dayData.count} contributions `}
                           on {dayData.date}.
                         </p>
                       </TooltipContent>
@@ -62,11 +65,11 @@ const TileGrid: React.FC<TileGridProps> = ({ data, habit }) => {
                   </TooltipProvider>
                 </div>
               ))}
-              {Array.from({ length: 7 - columnData.length }).map(
+              {/* {Array.from({ length: 7 - columnData.length }).map(
                 (_, emptyIndex) => (
                   <Tile key={`empty-${emptyIndex}`} count={-1} date={""} />
                 )
-              )}
+              )} */}
             </div>
           );
         })}
