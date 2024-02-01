@@ -30,7 +30,7 @@ const MyPage: React.FC = () => {
         Track what's meaningful to you as easy as you track your GitHub commits.
         &#128513;{" "}
       </p>
-      <div>
+      <div className="grid grid-flow-row gap-y-1">
         {habits.map((habit) => (
           <div key={habit}>
             <TileGrid

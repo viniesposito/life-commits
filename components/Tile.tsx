@@ -18,9 +18,7 @@ const Tile: React.FC<TileProps> = ({ date, count }) => {
     return null;
   }
 
-  return (
-    <div className={`rounded ${getColorClass(count)} w-4 h-4 m-0.5`}></div>
-  );
+  return <div className={`rounded ${getColorClass(count)} w-4 h-4 m-1`}></div>;
 };
 
 export default Tile;

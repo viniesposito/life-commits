@@ -16,16 +16,16 @@ const TileGrid: React.FC<TileGridProps> = ({ data, habit }) => {
   const totalColumns = Math.ceil(data.length / 7);
 
   const gridStyle = {
-    display: "grid",
-    gridTemplateRows: "repeat(7, 15px)", // 7 rows
     gridTemplateColumns: `repeat(${totalColumns}, 1fr)`, // total number of columns
-    gap: "2px", // Use `gap` instead of `gridGap` for consistency with TailwindCSS and modern CSS
   };
 
   return (
     <div>
       <h1 className="text-lg font-bold">{habit}</h1>
-      <div className="border rounded border-slate-600" style={gridStyle}>
+      <div
+        className={`grid grid-rows-[repeat(7, 1fr)] gap-2 border rounded border-slate-600`}
+        style={gridStyle}
+      >
         {Array.from({ length: totalColumns }).map((_, colIndex) => {
           const startIndex = colIndex * 7;
           const endIndex = startIndex + 7;
