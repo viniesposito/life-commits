@@ -1,7 +1,12 @@
 import React from "react";
-import Tile from "./Tile"; // Adjust the import path if necessary
+import Tile from "./Tile";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
-// Assuming data has a specific shape, define an interface for it
 interface DayData {
   date: string;
   count: number;
@@ -23,7 +28,7 @@ const TileGrid: React.FC<TileGridProps> = ({ data, habit }) => {
     <div>
       <h1 className="text-lg font-bold">{habit}</h1>
       <div
-        className={`grid grid-rows-[repeat(7, 1fr)] gap-2 border rounded border-slate-600`}
+        className={`grid grid-rows-[repeat(7, 1fr)] gap-2 border rounded border-slate-300 bg-slate-100 p-1`}
         style={gridStyle}
       >
         {Array.from({ length: totalColumns }).map((_, colIndex) => {
@@ -34,7 +39,28 @@ const TileGrid: React.FC<TileGridProps> = ({ data, habit }) => {
           return (
             <div key={colIndex}>
               {columnData.map((dayData, index) => (
-                <Tile key={index} date={dayData.date} count={dayData.count} />
+                <div key={index}>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger>
+                        <Tile
+                          key={index}
+                          date={dayData.date}
+                          count={dayData.count}
+                        />
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>
+                          {dayData.count}
+                          {dayData.count === 1
+                            ? " contribution "
+                            : " contributions "}
+                          on {dayData.date}.
+                        </p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </div>
               ))}
               {Array.from({ length: 7 - columnData.length }).map(
                 (_, emptyIndex) => (

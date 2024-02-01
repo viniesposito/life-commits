@@ -10,7 +10,7 @@ const Tile: React.FC<TileProps> = ({ date, count }) => {
     if (count > 10) return "bg-green-900";
     if (count > 5) return "bg-green-500";
     if (count > 0) return "bg-green-100";
-    if (count === 0) return "bg-green-100";
+    if (count === 0) return "bg-slate-100";
     return "bg-transparent";
   };
 
@@ -18,7 +18,13 @@ const Tile: React.FC<TileProps> = ({ date, count }) => {
     return null;
   }
 
-  return <div className={`rounded ${getColorClass(count)} w-4 h-4 m-1`}></div>;
+  return (
+    <>
+      <div
+        className={`rounded ${getColorClass(count)} w-4 h-4 m-0.2 border`}
+      ></div>
+    </>
+  );
 };
 
 export default Tile;
