@@ -32,7 +32,7 @@ const MyPage: React.FC = () => {
       </p>
       <div className="grid grid-flow-row gap-y-1">
         {habits.map((habit) => (
-          <div key={habit}>
+          <div className="overflow-x-auto" key={habit}>
             <TileGrid
               data={transformDataForHabit(mockData, habit)}
               habit={habit}
