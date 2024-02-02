@@ -8,7 +8,7 @@ const DashBoardLayout = ({ children }: DashboardLayoutProps) => {
     <>
       <main className="h-full flex justify-center">
         <Sidebar />
-        <div className="pl-[60px] w-1/2">{children}</div>
+        <div className="pl-[60px] w-1/2 max-w-4xl">{children}</div>
       </main>
     </>
   );
