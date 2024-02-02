@@ -43,7 +43,7 @@ const TileGrid: React.FC<TileGridProps> = ({ data, habit }) => {
                 <div key={index}>
                   <TooltipProvider>
                     <Tooltip>
-                      <TooltipTrigger>
+                      <TooltipTrigger className="cursor-default">
                         <Tile
                           key={index}
                           date={dayData.date}
