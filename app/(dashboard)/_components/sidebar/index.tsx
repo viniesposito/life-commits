@@ -1,3 +1,4 @@
+"use client";
 import { UserButton } from "@clerk/nextjs";
 import { NewButton } from "./new-button";
 
@@ -7,7 +8,7 @@ export const Sidebar = () => {
       <div className="flex items-center justify-center opacity-60 hover:opacity-100 transition">
         <UserButton />
       </div>
-      <NewButton iconType={"settings"} />
+      <NewButton />
     </aside>
   );
 };

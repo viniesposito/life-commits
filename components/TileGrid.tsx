@@ -41,7 +41,7 @@ export const TileGrid = ({ data, habit }: TileGridProps) => {
               {columnData.map((dayData, index) => (
                 <div key={index}>
                   <TooltipProvider>
-                    <Tooltip>
+                    <Tooltip delayDuration={200}>
                       <TooltipTrigger className="cursor-default">
                         <Tile
                           key={index}

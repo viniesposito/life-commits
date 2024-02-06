@@ -1,21 +1,16 @@
-"use-client";
-import { Plus, Settings } from "lucide-react";
+"use client";
+import { Settings } from "lucide-react";
+import { Hint } from "./hint";
 
-interface NewButtonProps {
-  iconType: string;
-}
-
-export const NewButton = ({ iconType }: NewButtonProps) => {
+export const NewButton = () => {
   return (
     <>
       <div className="aspect-square">
-        <button className="bg-white/25 h-full w-full rounded-md flex items-center justify-center opacity-60 hover:opacity-100 transition">
-          {iconType === "plus" ? (
-            <Plus className="text-white" />
-          ) : iconType === "settings" ? (
+        <Hint label="Settings" side="right" align="center" sideOffset={18}>
+          <button className="bg-white/25 h-full w-full rounded-md flex items-center justify-center opacity-60 hover:opacity-100 transition">
             <Settings className="text-white" />
-          ) : null}
-        </button>
+          </button>
+        </Hint>
       </div>
     </>
   );
