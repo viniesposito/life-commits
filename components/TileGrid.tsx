@@ -1,12 +1,11 @@
-import React from "react";
-import Tile from "./Tile";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { isDynamicMetadataRoute } from "next/dist/build/analysis/get-page-static-info";
+import { Tile } from "./Tile";
+// import { isDynamicMetadataRoute } from "next/dist/build/analysis/get-page-static-info";
 
 interface DayData {
   date: string;
@@ -18,7 +17,7 @@ interface TileGridProps {
   habit: string;
 }
 
-const TileGrid: React.FC<TileGridProps> = ({ data, habit }) => {
+export const TileGrid = ({ data, habit }: TileGridProps) => {
   const totalColumns = Math.ceil(data.length / 7);
 
   const gridStyle = {
@@ -65,11 +64,6 @@ const TileGrid: React.FC<TileGridProps> = ({ data, habit }) => {
                   </TooltipProvider>
                 </div>
               ))}
-              {/* {Array.from({ length: 7 - columnData.length }).map(
-                (_, emptyIndex) => (
-                  <Tile key={`empty-${emptyIndex}`} count={-1} date={""} />
-                )
-              )} */}
             </div>
           );
         })}
@@ -77,5 +71,3 @@ const TileGrid: React.FC<TileGridProps> = ({ data, habit }) => {
     </div>
   );
 };
-
-export default TileGrid;

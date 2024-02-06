@@ -1,5 +1,5 @@
 import { UserButton } from "@clerk/nextjs";
-import NewButton from "./new-button";
+import { NewButton } from "./new-button";
 
 export const Sidebar = () => {
   return (

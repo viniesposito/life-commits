@@ -1,12 +1,11 @@
 "use-client";
-import React from "react";
 import { Plus, Settings } from "lucide-react";
 
 interface NewButtonProps {
   iconType: string;
 }
 
-const NewButton: React.FC<NewButtonProps> = ({ iconType }) => {
+export const NewButton = ({ iconType }: NewButtonProps) => {
   return (
     <>
       <div className="aspect-square">
@@ -21,5 +20,3 @@ const NewButton: React.FC<NewButtonProps> = ({ iconType }) => {
     </>
   );
 };
-
-export default NewButton;

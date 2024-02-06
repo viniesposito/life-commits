@@ -1,5 +1,4 @@
-import React from "react";
-import TileGrid from "@/components/TileGrid";
+import { TileGrid } from "@/components/TileGrid";
 import mockData from "@/data/habit_tracker_mock_data.json";
 
 interface DayData {
@@ -12,7 +11,7 @@ interface HabitData {
   data: DayData[];
 }
 
-const MyPage: React.FC = () => {
+const MyPage = () => {
   const habits = Object.keys(Object.assign({}, ...mockData));
   habits.splice(habits.indexOf("date"), 1);
 
