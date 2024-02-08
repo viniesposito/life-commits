@@ -26,16 +26,11 @@ export const HabbitList = () => {
   };
 
   return (
-    <div className="h-full p-6">
+    <div>
       {!habits?.length ? (
         <NoHabits />
       ) : (
         <>
-          <h1 className="text-4xl font-bold my-4">Life Commits</h1>
-          <p className="my-4">
-            Track what's meaningful to you as easy as you track your GitHub
-            commits. &#128513;{" "}
-          </p>
           <div className="grid grid-flow-row gap-y-1">
             {habits.map((habit) => (
               <div className="overflow-x-auto" key={habit}>
