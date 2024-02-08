@@ -17,5 +17,12 @@ export const HabbitList = () => {
     return <NoHabits />;
   }
 
-  return <div>{JSON.stringify(habits)}</div>;
+  return (
+    // <div className="grid grid-cols-1 gap-5 mt-8 pb-10">
+    //   {data?.map(habit) => (
+
+    //   )}
+    // </div>
+    JSON.stringify(habits)
+  );
 };

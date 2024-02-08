@@ -5,7 +5,6 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Tile } from "./Tile";
-// import { isDynamicMetadataRoute } from "next/dist/build/analysis/get-page-static-info";
 
 interface DayData {
   date: string;
