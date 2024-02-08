@@ -15,6 +15,7 @@ import type {
   FunctionReference,
 } from "convex/server";
 import type * as habit from "../habit.js";
+import type * as habits from "../habits.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -26,6 +27,7 @@ import type * as habit from "../habit.js";
  */
 declare const fullApi: ApiFromModules<{
   habit: typeof habit;
+  habits: typeof habits;
 }>;
 export declare const api: FilterApi<
   typeof fullApi,
