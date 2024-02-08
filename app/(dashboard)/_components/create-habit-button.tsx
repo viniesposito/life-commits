@@ -18,10 +18,14 @@ import { api } from "@/convex/_generated/api";
 
 export const CreateHabbitButton = () => {
   const date = new Date();
+  const defaultDate = `${date.getDate()}-${
+    date.getMonth() + 1
+  }-${date.getFullYear()}`;
+
   const create = useMutation(api.habit.create);
 
   const [title, setTitle] = useState("");
-  const [effectiveDate, setEffectiveDate] = useState("");
+  const [effectiveDate, setEffectiveDate] = useState(defaultDate);
   const [count, setCount] = useState(0);
 
   const onSubmit = (
@@ -69,9 +73,7 @@ export const CreateHabbitButton = () => {
             </Label>
             <Input
               id="effectiveDate"
-              defaultValue={`${date.getDate()}-${
-                date.getMonth() + 1
-              }-${date.getFullYear()}`}
+              defaultValue={defaultDate}
               className="col-span-3"
               onChange={(e) => setEffectiveDate(e.target.value)}
             />
