@@ -13,10 +13,10 @@ interface HabitData {
 }
 
 export const HabbitList = () => {
-  const habits = Object.keys(Object.assign({}, ...mockData));
-  habits.splice(habits.indexOf("date"), 1);
+  //   const habits = Object.keys(Object.assign({}, ...mockData));
+  //   habits.splice(habits.indexOf("date"), 1);
 
-  // const habits = {};
+  const habits = {};
 
   const transformDataForHabit = (data: any[], habit: string) => {
     return data.map((day) => ({
