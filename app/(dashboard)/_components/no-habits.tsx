@@ -1,6 +1,6 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import { useUser } from "@clerk/nextjs";
+import { CreateHabbitButton } from "./create-habit-button";
 
 export const NoHabits = () => {
   const { isSignedIn, user, isLoaded } = useUser();
@@ -10,14 +10,12 @@ export const NoHabits = () => {
       <h2 className="text=2xl font-semibold mt-6">
         Welcome to Life Commits, {user?.firstName}!
       </h2>
-      <div className="text-muted-foreground text-sm mt-2 flex flex-col items-center justify-center">
-        <p>You are not tracking any commits yet.</p>
-        <p>Create a habbit to get started!</p>
-      </div>
+      <p className="text-muted-foreground text-sm mt-2 text-center">
+        You are not tracking any habits yet.
+        <br /> Create one to get started!
+      </p>
       <div className="mt-6">
-        <Button size="lg" className="bg-blue-600">
-          Create a habbit
-        </Button>
+        <CreateHabbitButton />
       </div>
     </div>
   );
