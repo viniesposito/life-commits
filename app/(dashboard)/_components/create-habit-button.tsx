@@ -15,6 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
+import { toast } from "sonner";
 
 export const CreateHabbitButton = () => {
   const date = new Date();
@@ -37,7 +38,11 @@ export const CreateHabbitButton = () => {
       title: inputTitle,
       effectiveDate: inputEffectiveDate,
       count: inputCount,
-    });
+    })
+      .then((id) => {
+        toast.success("Habit created");
+      })
+      .catch(() => toast.error("Failed to create habit"));
   };
 
   return (
