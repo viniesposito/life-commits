@@ -3,6 +3,7 @@ import { NoHabits } from "./no-habits";
 import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { useUser } from "@clerk/nextjs";
+import { TileGrid } from "./tilegrid/TileGrid";
 
 export const HabbitList = () => {
   const { isSignedIn, user, isLoaded } = useUser();
@@ -17,12 +18,34 @@ export const HabbitList = () => {
     return <NoHabits />;
   }
 
-  return (
-    // <div className="grid grid-cols-1 gap-5 mt-8 pb-10">
-    //   {data?.map(habit) => (
+  const convertDataStructure = (data: any[]) => {
+    const result: { [key: string]: { [key: string]: number } } = {};
 
-    //   )}
-    // </div>
-    JSON.stringify(habits)
+    data.forEach((item) => {
+      const { effectiveDate, count, title } = item;
+
+      if (!result[title]) {
+        result[title] = {};
+      }
+
+      if (!result[title][effectiveDate]) {
+        result[title][effectiveDate] = 0;
+      }
+
+      result[title][effectiveDate] += count;
+    });
+
+    return result;
+  };
+
+  const structuredData = convertDataStructure(habits);
+  const habitArray = Object.keys(structuredData);
+
+  return (
+    <div className="grid grid-cols-1 gap-5 mt-8 pb-10">
+      {Object.entries(structuredData).map(([title, data], index) => (
+        <TileGrid key={index} title={title} data={data} />
+      ))}
+    </div>
   );
 };
