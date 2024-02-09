@@ -39,7 +39,6 @@ export const HabbitList = () => {
   };
 
   const structuredData = convertDataStructure(habits);
-  const habitArray = Object.keys(structuredData);
 
   return (
     <div className="grid grid-cols-1 gap-5 mt-8 pb-10">

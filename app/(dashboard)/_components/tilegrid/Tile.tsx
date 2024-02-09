@@ -19,7 +19,7 @@ export const Tile = ({ date, count }: TileProps) => {
   return (
     <>
       <div
-        className={`rounded ${getColorClass(count)} w-4 h-4 m-0.2 border`}
+        className={`rounded ${getColorClass(count)} w-3 h-3 m-0.2 border`}
       ></div>
     </>
   );
