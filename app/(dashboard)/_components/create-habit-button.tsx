@@ -16,17 +16,28 @@ import { Label } from "@/components/ui/label";
 import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { toast } from "sonner";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Calendar } from "@/components/ui/calendar";
+import { format } from "date-fns";
+import { cn } from "@/lib/utils";
+import { Calendar as CalendarIcon } from "lucide-react";
 
 export const CreateHabbitButton = () => {
-  const date = new Date();
-  const defaultDate = `${date.getDate()}-${
-    date.getMonth() + 1
-  }-${date.getFullYear()}`;
+  // const date = new Date();
+  // const defaultDate = `${date.getDate()}-${
+  //   date.getMonth() + 1
+  // }-${date.getFullYear()}`;
 
   const create = useMutation(api.habit.create);
 
   const [title, setTitle] = useState("");
-  const [effectiveDate, setEffectiveDate] = useState(defaultDate);
+  const [effectiveDate, setEffectiveDate] = useState<Date | undefined>(
+    new Date()
+  );
   const [count, setCount] = useState(0);
 
   const onSubmit = (
@@ -72,7 +83,7 @@ export const CreateHabbitButton = () => {
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
-          <div className="grid grid-cols-4 items-center gap-4">
+          {/* <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="effectiveDate" className="text-right">
               Start date
             </Label>
@@ -82,7 +93,7 @@ export const CreateHabbitButton = () => {
               className="col-span-3"
               onChange={(e) => setEffectiveDate(e.target.value)}
             />
-          </div>
+          </div> */}
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="count" className="text-right">
               Count
@@ -94,11 +105,44 @@ export const CreateHabbitButton = () => {
               onChange={(e) => setCount(parseInt(e.target.value))}
             />
           </div>
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="count" className="text-right">
+              Date
+            </Label>
+            <Popover>
+              <PopoverTrigger>
+                <Button
+                  variant={"outline"}
+                  className={cn(
+                    "w-[280px] justify-start text-left font-normal",
+                    !effectiveDate && "text-muted-foreground"
+                  )}
+                >
+                  <CalendarIcon className="mr-2 h-4 w-4" />
+                  {effectiveDate ? (
+                    format(effectiveDate, "PPP")
+                  ) : (
+                    <span>Pick a date</span>
+                  )}
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-auto p-0">
+                <Calendar
+                  mode="single"
+                  selected={effectiveDate}
+                  onSelect={setEffectiveDate}
+                  className="rounded-md border"
+                />
+              </PopoverContent>
+            </Popover>
+          </div>
         </div>
         <DialogFooter>
           <DialogClose asChild>
             <Button
-              onClick={() => onSubmit(title, effectiveDate, count)}
+              onClick={() =>
+                onSubmit(title, format(effectiveDate!, "yyyy-MM-dd"), count)
+              }
               type="submit"
               className="bg-blue-600"
             >
