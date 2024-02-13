@@ -5,6 +5,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Tile } from "./Tile";
+import { format } from "date-fns";
 
 interface TileGridProps {
   data: Record<string, number>;
@@ -17,9 +18,7 @@ export const TileGrid = ({ data, title }: TileGridProps) => {
     const currentDate = new Date(startDate);
     for (let i = 0; i < days; i++) {
       // Assuming the date format you want is "dd-mm-yyyy"
-      const date = `${
-        currentDate.getMonth() + 1
-      }-${currentDate.getDate()}-${currentDate.getFullYear()}`;
+      const date = format(currentDate!, "yyyy-MM-dd");
       result.push(date);
       currentDate.setDate(currentDate.getDate() - 1); // Move to next day
     }
@@ -48,9 +47,7 @@ export const TileGrid = ({ data, title }: TileGridProps) => {
   };
 
   const todayDate = new Date();
-  const defaultDate = `${todayDate.getDate()}-${
-    todayDate.getMonth() + 1
-  }-${todayDate.getFullYear()}`;
+  const defaultDate = format(todayDate!, "yyyy-MM-dd");
 
   const initializedData = initializeDataWithDates(data, defaultDate, 365);
 
