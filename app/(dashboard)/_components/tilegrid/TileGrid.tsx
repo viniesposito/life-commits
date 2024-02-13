@@ -14,7 +14,7 @@ interface TileGridProps {
 
 export const TileGrid = ({ data, title }: TileGridProps) => {
   const generateDates = (startDate: string, days: number): string[] => {
-    const result = [];
+    const result = [startDate];
     const currentDate = new Date(startDate);
     for (let i = 0; i < days; i++) {
       // Assuming the date format you want is "dd-mm-yyyy"
