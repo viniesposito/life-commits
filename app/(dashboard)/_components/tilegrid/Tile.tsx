@@ -8,7 +8,7 @@ export const Tile = ({ date, count }: TileProps) => {
     if (count > 10) return "bg-green-900";
     if (count > 5) return "bg-green-500";
     if (count > 0) return "bg-green-100";
-    if (count === 0) return "bg-slate-100";
+    if (count === 0) return "bg-slate-600";
     return "bg-transparent";
   };
 
@@ -18,9 +18,7 @@ export const Tile = ({ date, count }: TileProps) => {
 
   return (
     <>
-      <div
-        className={`rounded ${getColorClass(count)} w-3 h-3 m-0.2 border`}
-      ></div>
+      <div className={`rounded-sm ${getColorClass(count)} w-3 h-3 m-0.2`}></div>
     </>
   );
 };

@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import { HabbitList } from "./_components/habit-list";
 import { UserButton } from "@clerk/nextjs";
+import { CreateHabbitButton } from "./_components/create-habit-button";
 
 const workbench = localFont({ src: "./Workbench.ttf", display: "swap" });
 
@@ -32,6 +33,9 @@ const MyPage = () => {
           Track what's meaningful to you as easy as you track your GitHub
           commits. &#128513;{" "}
         </p>
+      </div>
+      <div>
+        <CreateHabbitButton />
       </div>
       <div className="h-full">
         <HabbitList />

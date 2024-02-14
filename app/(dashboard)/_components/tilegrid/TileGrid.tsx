@@ -58,31 +58,39 @@ export const TileGrid = ({ data, title }: TileGridProps) => {
   });
 
   return (
-    <div>
-      <h1 className="text-lg font-bold">{title}</h1>
-      <div className="overflow-x-auto grid grid-rows-7 grid-flow-col gap-0.5 border rounded border-slate-300 bg-slate-100 p-1">
-        {sortedDates.map((date, index) => (
-          <div key={index}>
-            <TooltipProvider>
-              <Tooltip delayDuration={200}>
-                <TooltipTrigger className="cursor-default">
-                  <Tile key={index} date={date} count={initializedData[date]} />
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>
-                    {typeof initializedData[date] === "undefined" ||
-                    initializedData[date] === 0
-                      ? "No contributions "
-                      : initializedData[date] === 1
-                      ? `${initializedData[date]} contribution `
-                      : `${initializedData[date]} contributions `}
-                    on {date}.
-                  </p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-          </div>
-        ))}
+    <div className="mt-6">
+      <div className="absolute bg-amber-400 text-center w-fit p-1 ml-2 -mt-8 border-2 border-black">
+        <h1 className="text-lg font-bold">{title}</h1>
+      </div>
+      <div>
+        <div className="rounded overflow-x-auto grid grid-rows-7 grid-flow-col gap-0.5 bg-slate-800 p-1 pt-2">
+          {sortedDates.map((date, index) => (
+            <div key={index}>
+              <TooltipProvider>
+                <Tooltip delayDuration={200}>
+                  <TooltipTrigger className="cursor-default">
+                    <Tile
+                      key={index}
+                      date={date}
+                      count={initializedData[date]}
+                    />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>
+                      {typeof initializedData[date] === "undefined" ||
+                      initializedData[date] === 0
+                        ? "No contributions "
+                        : initializedData[date] === 1
+                        ? `${initializedData[date]} contribution `
+                        : `${initializedData[date]} contributions `}
+                      on {date}.
+                    </p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

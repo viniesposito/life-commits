@@ -27,11 +27,6 @@ import { cn } from "@/lib/utils";
 import { Calendar as CalendarIcon } from "lucide-react";
 
 export const CreateHabbitButton = () => {
-  // const date = new Date();
-  // const defaultDate = `${date.getDate()}-${
-  //   date.getMonth() + 1
-  // }-${date.getFullYear()}`;
-
   const create = useMutation(api.habit.create);
 
   const [title, setTitle] = useState("");
@@ -59,9 +54,9 @@ export const CreateHabbitButton = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button size="lg" className="bg-blue-600">
+        <button className="m-2 p-3 text-white transition-all duration-500 bg-gradient-to-tl from-emerald-500 via-teal-800 to-green-400 bg-size-200 bg-pos-0 hover:bg-pos-100 border-2 border-black font-semibold">
           Create a habit!
-        </Button>
+        </button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
@@ -83,17 +78,6 @@ export const CreateHabbitButton = () => {
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
-          {/* <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="effectiveDate" className="text-right">
-              Start date
-            </Label>
-            <Input
-              id="effectiveDate"
-              defaultValue={defaultDate}
-              className="col-span-3"
-              onChange={(e) => setEffectiveDate(e.target.value)}
-            />
-          </div> */}
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="count" className="text-right">
               Count
@@ -144,7 +128,7 @@ export const CreateHabbitButton = () => {
                 onSubmit(title, format(effectiveDate!, "yyyy-MM-dd"), count)
               }
               type="submit"
-              className="bg-blue-600"
+              className="bg-amber-300 text-black hover:bg-emerald-500 rounded-none"
             >
               Create habit
             </Button>
