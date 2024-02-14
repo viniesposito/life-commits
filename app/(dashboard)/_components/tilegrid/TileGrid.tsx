@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/tooltip";
 import { Tile } from "./Tile";
 import { format } from "date-fns";
+import { AddEntryButton } from "../add-entry-button";
 
 interface TileGridProps {
   data: Record<string, number>;
@@ -64,9 +65,7 @@ export const TileGrid = ({ data, title }: TileGridProps) => {
           <h1 className="text-lg font-bold">{title}</h1>
         </div>
         <div className="grow" />
-        <button className="bg-amber-400 text-center w-10 h-10 -mt-8 mr-2 border-2 border-black text-bold text-3xl">
-          +
-        </button>
+        <AddEntryButton title={title} />
       </div>
       <div>
         <div className="rounded overflow-x-auto grid grid-rows-7 grid-flow-col gap-0.5 bg-slate-800 p-1 pt-2">
