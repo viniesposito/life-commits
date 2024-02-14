@@ -59,8 +59,14 @@ export const TileGrid = ({ data, title }: TileGridProps) => {
 
   return (
     <div className="mt-6">
-      <div className="absolute bg-amber-400 text-center w-fit p-1 ml-2 -mt-8 border-2 border-black">
-        <h1 className="text-lg font-bold">{title}</h1>
+      <div className="flex flex-row -mb-2">
+        <div className=" bg-amber-400 text-center w-fit p-1 ml-2 -mt-8 border-2 border-black">
+          <h1 className="text-lg font-bold">{title}</h1>
+        </div>
+        <div className="grow" />
+        <button className="bg-amber-400 text-center w-10 h-10 -mt-8 mr-2 border-2 border-black text-bold text-3xl">
+          +
+        </button>
       </div>
       <div>
         <div className="rounded overflow-x-auto grid grid-rows-7 grid-flow-col gap-0.5 bg-slate-800 p-1 pt-2">
