@@ -58,6 +58,8 @@ export const TileGrid = ({ data, title }: TileGridProps) => {
     return dateA.getTime() - dateB.getTime();
   });
 
+  const maxValue = Math.max(...Object.values(initializedData));
+
   return (
     <div className="mt-6">
       <div className="flex flex-row -mb-2">
@@ -78,6 +80,7 @@ export const TileGrid = ({ data, title }: TileGridProps) => {
                       key={index}
                       date={date}
                       count={initializedData[date]}
+                      maxValue={maxValue}
                     />
                   </TooltipTrigger>
                   <TooltipContent>
