@@ -68,7 +68,7 @@ export const TileGrid = ({ data, title }: TileGridProps) => {
         <AddEntryButton title={title} />
       </div>
       <div>
-        <div className="rounded overflow-x-auto grid grid-rows-7 grid-flow-col gap-0.5 bg-slate-800 p-1 pt-2">
+        <div className="rounded overflow-x-auto grid grid-rows-7 grid-flow-col gap-0.5 border border-slate-700 p-1 pt-2">
           {sortedDates.map((date, index) => (
             <div key={index}>
               <TooltipProvider>

@@ -62,8 +62,8 @@ export const CreateHabbitButton = () => {
         <DialogHeader>
           <DialogTitle>Create a habit</DialogTitle>
           <DialogDescription>
-            Give your habit a title, a start date and count. Click save when
-            you're done.
+            Give your habit a title, choose a date to begin tracking and set its
+            first count!
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
