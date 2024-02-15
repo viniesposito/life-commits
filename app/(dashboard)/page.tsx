@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import { HabbitList } from "./_components/habit-list";
 import { UserButton } from "@clerk/nextjs";
 import { CreateHabbitButton } from "./_components/create-habit-button";
+import { RemoveHabitButton } from "./_components/remove-habit-button";
 
 const workbench = localFont({ src: "./Workbench.ttf", display: "swap" });
 
@@ -36,6 +37,9 @@ const MyPage = () => {
       </div>
       <div>
         <CreateHabbitButton />
+      </div>
+      <div>
+        <RemoveHabitButton />
       </div>
       <div className="h-full">
         <HabbitList />

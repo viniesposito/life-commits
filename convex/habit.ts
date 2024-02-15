@@ -25,3 +25,16 @@ export const create = mutation({
     return habit;
   },
 });
+
+export const remove = mutation({
+  args: { id: v.id("habits") },
+  handler: async (ctx, args) => {
+    const identity = await ctx.auth.getUserIdentity();
+
+    if (!identity) {
+      throw new Error("Unauthorized");
+    }
+
+    await ctx.db.delete(args.id);
+  },
+});
