@@ -44,7 +44,7 @@ export const RemoveHabitButton = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <button className="w-120 m-2 p-3 text-white transition-all duration-500 bg-gradient-to-tl from-red-300 via-rose-800 to-red-400 bg-size-200 bg-pos-0 hover:bg-pos-100 border-2 border-black font-semibold">
+        <button className="w-full my-2 p-3 text-white transition-all duration-500 bg-gradient-to-tl from-red-300 via-rose-800 to-red-400 bg-size-200 bg-pos-0 hover:bg-pos-100 border-2 border-black font-semibold">
           Delete a habit...
         </button>
       </DialogTrigger>

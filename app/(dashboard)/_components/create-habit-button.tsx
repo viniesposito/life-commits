@@ -55,7 +55,7 @@ export const CreateHabbitButton = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <button className="w-130 m-2 p-3 text-white transition-all duration-500 bg-gradient-to-tl from-emerald-500 via-teal-800 to-green-400 bg-size-200 bg-pos-0 hover:bg-pos-100 border-2 border-black font-semibold">
+        <button className="w-full my-2 p-3 text-white transition-all duration-500 bg-gradient-to-tl from-emerald-500 via-teal-800 to-green-400 bg-size-200 bg-pos-0 hover:bg-pos-100 border-2 border-black font-semibold">
           Create a habit!
         </button>
       </DialogTrigger>

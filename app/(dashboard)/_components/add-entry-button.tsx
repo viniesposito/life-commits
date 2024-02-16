@@ -57,7 +57,7 @@ export const AddEntryButton = ({ title }: AddEntryButtonProps) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <button className="bg-amber-400 text-center w-10 h-10 -mt-8 mr-2 border-2 border-black text-bold text-3xl transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
+        <button className="bg-amber-400 text-center w-10 h-10 -mt-8 mr-2 border-2 border-black text-bold text-3xl transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
           +
         </button>
       </DialogTrigger>

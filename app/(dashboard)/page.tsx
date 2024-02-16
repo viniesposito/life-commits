@@ -3,6 +3,7 @@ import { HabbitList } from "./_components/habit-list";
 import { UserButton } from "@clerk/nextjs";
 import { CreateHabbitButton } from "./_components/create-habit-button";
 import { RemoveHabitButton } from "./_components/remove-habit-button";
+import { NumberResultsButton } from "./_components/number-results-button";
 
 const workbench = localFont({ src: "./Workbench.ttf", display: "swap" });
 
@@ -35,12 +36,15 @@ const MyPage = () => {
           commits. &#128513;{" "}
         </p>
       </div>
-      <div className="flex flex-row">
+      <div className="grid grid-cols-3 gap-x-3">
         <div>
           <CreateHabbitButton />
         </div>
         <div>
           <RemoveHabitButton />
+        </div>
+        <div>
+          <NumberResultsButton />
         </div>
       </div>
       <div className="h-full">
