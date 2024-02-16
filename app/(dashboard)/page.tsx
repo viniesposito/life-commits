@@ -35,11 +35,13 @@ const MyPage = () => {
           commits. &#128513;{" "}
         </p>
       </div>
-      <div>
-        <CreateHabbitButton />
-      </div>
-      <div>
-        <RemoveHabitButton />
+      <div className="flex flex-row">
+        <div>
+          <CreateHabbitButton />
+        </div>
+        <div>
+          <RemoveHabitButton />
+        </div>
       </div>
       <div className="h-full">
         <HabbitList />

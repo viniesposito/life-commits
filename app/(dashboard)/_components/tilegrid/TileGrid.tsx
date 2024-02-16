@@ -76,12 +76,7 @@ export const TileGrid = ({ data, title }: TileGridProps) => {
               <TooltipProvider>
                 <Tooltip delayDuration={200}>
                   <TooltipTrigger className="cursor-default">
-                    <Tile
-                      key={index}
-                      date={date}
-                      count={initializedData[date]}
-                      maxValue={maxValue}
-                    />
+                    <Tile key={index} count={initializedData[date]} />
                   </TooltipTrigger>
                   <TooltipContent>
                     <p>
