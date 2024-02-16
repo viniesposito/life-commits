@@ -7,6 +7,7 @@ import {
 import { Tile } from "./Tile";
 import { format } from "date-fns";
 import { AddEntryButton } from "../add-entry-button";
+import { useSearchParams } from "next/navigation";
 
 interface TileGridProps {
   data: Record<string, number>;
@@ -14,6 +15,9 @@ interface TileGridProps {
 }
 
 export const TileGrid = ({ data, title }: TileGridProps) => {
+  const searchParams = useSearchParams();
+  const historyLength = searchParams.get("show");
+
   const generateDates = (startDate: string, days: number): string[] => {
     const result = [startDate];
     const currentDate = new Date(startDate);
@@ -50,15 +54,17 @@ export const TileGrid = ({ data, title }: TileGridProps) => {
   const todayDate = new Date();
   const defaultDate = format(todayDate!, "yyyy-MM-dd");
 
-  const initializedData = initializeDataWithDates(data, defaultDate, 365);
+  const initializedData = initializeDataWithDates(
+    data,
+    defaultDate,
+    parseInt(historyLength!)
+  );
 
   const sortedDates = Object.keys(initializedData).sort((a, b) => {
     const dateA = new Date(a);
     const dateB = new Date(b);
     return dateA.getTime() - dateB.getTime();
   });
-
-  const maxValue = Math.max(...Object.values(initializedData));
 
   return (
     <div className="mt-6">

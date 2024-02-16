@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,7 +12,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export const NumberResultsButton = () => {
+  const router = useRouter();
   const [historyLength, setHistoryLength] = useState("365");
+
+  useEffect(() => {
+    router.push(`?show=${historyLength}`, { scroll: false });
+  });
 
   return (
     <DropdownMenu>
