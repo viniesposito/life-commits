@@ -15,6 +15,7 @@ export const Tile = ({ count }: TileProps) => {
     if (count > 6 && count <= 8) return "#1b9d4b";
     if (count > 8 && count <= 10) return "#147638";
     if (count > 10) return "#0d4e25";
+    return "";
   };
 
   return (
