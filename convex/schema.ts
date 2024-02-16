@@ -5,7 +5,7 @@ export default defineSchema({
   habits: defineTable({
     title: v.string(),
     authorId: v.string(),
-    authorName: v.string(),
+    authorName: v.optional(v.string()),
     effectiveDate: v.string(),
     count: v.number(),
   }).index("by_author", ["authorId"]),

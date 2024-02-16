@@ -40,6 +40,7 @@ export const CreateHabbitButton = () => {
     inputEffectiveDate: string,
     inputCount: number
   ) => {
+    console.log(inputTitle, inputEffectiveDate, inputCount);
     create({
       title: inputTitle,
       effectiveDate: inputEffectiveDate,
