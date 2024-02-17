@@ -5,7 +5,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Tile } from "./Tile";
-import { format } from "date-fns";
+import { format, min } from "date-fns";
 import { AddEntryButton } from "../add-entry-button";
 import { useSearchParams } from "next/navigation";
 
@@ -38,14 +38,19 @@ export const TileGrid = ({ data, title }: TileGridProps) => {
     const dateArray = generateDates(startDate, days);
     const initializedData: Record<string, number> = {};
 
-    // Initialize all dates with a count of 0
     dateArray.forEach((date) => {
       initializedData[date] = 0;
     });
 
-    // Overwrite with existing data counts
+    const defaultDateDt = new Date(startDate);
+    const minDate = new Date(
+      defaultDateDt.setDate(defaultDateDt.getDate() - days)
+    );
+
     Object.entries(existingData).forEach(([date, count]) => {
-      initializedData[date] = count;
+      if (new Date(date).getTime() >= minDate.getTime()) {
+        initializedData[date] = count;
+      }
     });
 
     return initializedData;

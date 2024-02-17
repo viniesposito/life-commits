@@ -4,11 +4,14 @@ import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { useUser } from "@clerk/nextjs";
 import { TileGrid } from "./tilegrid/TileGrid";
+import { useSearchParams } from "next/navigation";
 
 export const HabbitList = () => {
   const { isSignedIn, user, isLoaded } = useUser();
   const authorId = user!.id;
   const habits = useQuery(api.habits.get, { authorId });
+  const searchParams = useSearchParams();
+  const historyLength = searchParams.get("show");
 
   if (habits === undefined) {
     return <div>Loading...</div>;
@@ -41,7 +44,11 @@ export const HabbitList = () => {
   const structuredData = convertDataStructure(habits);
 
   return (
-    <div className="grid grid-cols-1 gap-5 mt-8 pb-10">
+    <div
+      className={`grid grid-cols-${
+        historyLength! === "365" ? 1 : 2
+      } gap-5 mt-8 pb-10`}
+    >
       {Object.entries(structuredData).map(([title, data], index) => (
         <TileGrid key={index} title={title} data={data} />
       ))}
