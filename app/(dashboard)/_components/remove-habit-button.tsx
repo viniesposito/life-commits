@@ -30,6 +30,9 @@ export const RemoveHabitButton = () => {
   const entries = useQuery(api.habits.getIdsByTitle, { authorId, title });
 
   const onSubmit = (title: string) => {
+    if (!entries) {
+      // todo: handle case where habit user inputted doesnt exist (let them know)
+    } else {
     entries?.map((id) =>
       remove({
         id: id,
@@ -39,6 +42,7 @@ export const RemoveHabitButton = () => {
         })
         .catch(() => toast.error("Failed to delete habit"))
     );
+      }
   };
 
   return (
